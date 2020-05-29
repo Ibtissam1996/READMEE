@@ -1,4 +1,4 @@
--Installation of Zibbix Server on centos7
+-Installation of Zibbix Server on centos7:
 ** Installation of the web server
 ** Installation of php
 ** Installation of the mariadb server
@@ -11,7 +11,7 @@
 ** Selinux must be deactivated
 
 
--Installation of Zabbix Agent on centos 7 and macOs
+-Installation of Zabbix Agent on centos 7 and macOs:
 * On mac:
 ** Download zibbix agent from this link https://www.zabbix.com/download_agents
 ** Start the installation wizard
@@ -24,7 +24,7 @@
 ** Restarting the Zabbix agent
 
 
--Add client machines to Zabbix
+-Add client machines to Zabbix:
 * Log in to your Zabbix web interface using the administrator account. Follow then the steps below:
 ** Click on the configuration menu
 ** Click on the Hosts submenu
