@@ -1,0 +1,288 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Roman;\f1\froman\fcharset0 Times-Bold;\f2\fnil\fcharset0 LucidaGrande;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red124\green152\blue210;\red11\green76\blue180;
+}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c55686\c66667\c85882;\cssrgb\c1961\c38824\c75686;
+}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11960\viewh15520\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf2 \expnd0\expndtw0\kerning0
+\
+
+\f1\b\fs32 \cf3 Install the web server and activate it.\
+\cf2 # yum -y install httpd 
+\f0\b0\fs24 \
+
+\f1\b\fs32 # systemctl start httpd 
+\f0\b0\fs24 \
+
+\f1\b\fs32 # systemctl enable httpd 
+\f0\b0\fs24 \
+
+\f1\b\fs32 # yum -y install epel-release 
+\f0\b0\fs24 \
+
+\f1\b\fs32 \cf3 Install php 
+\f0\b0\fs24 \cf2 \
+
+\f1\b\fs32 #rpm -Uvh \cf4 https://mirror.webtatic.com/yum/el7/webtatic-release.rpm 
+\f0\b0\fs24 \cf2 \
+
+\f1\b\fs32 # yum -y install mod_php72w php72w-cli php72w-common php72w-devel php72w
+\f0\b0\fs24 \
+
+\f1\b\fs32 pear php72w-gd php72w-mbstring php72w-mysql php72w-xml php72w-bcmath 
+\f0\b0\fs24 \
+
+\f1\b\fs32 \cf3 Increase execution time, download size and time zone of the date. \
+Open the php.ini file.
+\f0\b0\fs24 \cf2 \
+
+\f1\b\fs32 # vi /etc/php.ini 
+\f0\b0\fs24 \
+
+\f2\fs32 ->
+\f1\b Insert the following lines: 
+\f0\b0\fs24 \
+
+\f1\b\fs32 max_execution_time = 600 
+\f0\b0\fs24 \
+
+\f1\b\fs32 max_input_time = 600 
+\f0\b0\fs24 \
+
+\f1\b\fs32 memory_limit = 256M 
+\f0\b0\fs24 \
+
+\f1\b\fs32 post_max_size = 32M 
+\f0\b0\fs24 \
+
+\f1\b\fs32 upload_max_filesize = 16M 
+\f0\b0\fs24 \
+
+\f1\b\fs32 date.timezone = Europe/London 
+\f0\b0\fs24 \
+
+\f2\fs32 ->
+\f1\b Restart the web server using the command below
+\f0\b0\fs24 \
+
+\f1\b\fs32 # systemctl restart httpd 
+\f0\b0\fs24 \
+
+\f1\b\fs32 \cf3 Install the MySQL Zabbix database:
+\f0\b0\fs24 \cf2 \
+
+\f1\b\fs32 # yum -y install mariadb-server 
+\f0\b0\fs24 \
+
+\f1\b\fs32 # systemctl start mariadb 
+\f0\b0\fs24 \
+
+\f1\b\fs32 # systemctl enable mariadb 
+\f0\b0\fs24 \
+
+\f1\b\fs32 # mysql_secure_installation 
+\f0\b0\fs24 \
+
+\f1\b\fs32 ->Create a Zabbix database to store all data
+\f0\b0\fs24 \
+
+\f1\b\fs32 # mysql -u root -p 
+\f0\b0\fs24 \
+
+\f1\b\fs32 ->Database creation command below
+\f0\b0\fs24 \
+
+\f1\b\fs32 create database zabbix; 
+\f0\b0\fs24 \
+
+\f1\b\fs32 grant all privileges on zabbix.* to zabbix@'localhost' identified by 'passw0rd'; 
+\f0\b0\fs24 \
+
+\f1\b\fs32 grant all privileges on zabbix.* to zabbix@'%' identified by 'passw0rd'; 
+\f0\b0\fs24 \
+
+\f1\b\fs32 flush privileges; 
+\f0\b0\fs24 \
+
+\f1\b\fs32 \cf3 Download the rpm package under the command: 
+\f0\b0\fs24 \cf2 \
+
+\f1\b\fs32 # yum -y install \cf4 http://repo.zabbix.com/zabbix/3.4/rhel/7/x86_64/zabbix-release- 
+\f0\b0\fs24 \cf2 \
+
+\f1\b\fs32 \cf4 3.4-1.el7.centos.noarch.rpm 
+\f0\b0\fs24 \cf2 \
+
+\f1\b\fs32 ->Install Zabbix Mysql using the command below
+\f0\b0\fs24 \
+
+\f1\b\fs32 # yum -y install zabbix-get zabbix-server-mysql zabbix-web-mysql zabbix-agent 
+\f0\b0\fs24 \
+
+\f1\b\fs32 # cd /usr/share/doc/zabbix-server-mysql-3.4.15/ 
+\f0\b0\fs24 \
+
+\f1\b\fs32 # gunzip create.sql.gz 
+\f0\b0\fs24 \
+
+\f1\b\fs32 # mysql -u root -p zabbix < create.sql 
+\f0\b0\fs24 \
+
+\f1\b\fs32 \cf3 Check the Zabbix server configuration file and make sure to insert the lines below
+\f0\b0\fs24 \cf2 \
+
+\f1\b\fs32 # vi /etc/zabbix/zabbix_server.conf 
+\f0\b0\fs24 \
+
+\f1\b\fs32 ->Inserer les lignes ci-dessous : 
+\f0\b0\fs24 \
+
+\f1\b\fs32 DBHost=localhost 
+\f0\b0\fs24 \
+
+\f1\b\fs32 DBPassword=passw0rd 
+\f0\b0\fs24 \
+
+\f1\b\fs32 DBName=zabbix 
+\f0\b0\fs24 \
+
+\f1\b\fs32 ->Activate and restart the Zabbix service : 
+\f0\b0\fs24 \
+
+\f1\b\fs32 # systemctl start zabbix-server 
+\f0\b0\fs24 \
+
+\f1\b\fs32 # systemctl enable zabbix-server 
+\f0\b0\fs24 \
+
+\f1\b\fs32 \cf3 Configure the Zabbix agent configuration file. 
+\f0\b0\fs24 \cf2 \
+
+\f1\b\fs32 # vi /etc/zabbix/zabbix_agentd.conf 
+\f0\b0\fs24 \
+->
+\f1\b\fs32 Make sure conf file contains all of these lines : 
+\f0\b0\fs24 \
+
+\f1\b\fs32 Server=127.0.0.1 
+\f0\b0\fs24 \
+
+\f1\b\fs32 ServerActive=127.0.0.1 
+\f0\b0\fs24 \
+
+\f1\b\fs32 Hostname=Zabbix-Server 
+\f0\b0\fs24 \
+
+\f1\b\fs32 ->Activate and start the Zabbix agent service
+\f0\b0\fs24 \
+
+\f1\b\fs32 #systemctl start zabbix-agent 
+\f0\b0\fs24 \
+
+\f1\b\fs32 #systemctl enable zabbix-agent\cf3 \
+Configure the firewall to allow the Zabbix port
+\f0\b0\fs24 \cf2 \
+
+\f1\b\fs32 #yum -y install firewalld 
+\f0\b0\fs24 \
+
+\f1\b\fs32 ->Start and activate the firewall service
+\f0\b0\fs24 \
+
+\f1\b\fs32 # systemctl start firewalld 
+\f0\b0\fs24 \
+
+\f1\b\fs32 # systemctl enable firewalld 
+\f0\b0\fs24 \
+
+\f1\b\fs32 \cf3 Add http and Zabbix ports to allow: 
+\f0\b0\fs24 \cf2 \
+
+\f1\b\fs32 # firewall-cmd --add-service=\{http,https\} --permanent 
+\f0\b0\fs24 \
+
+\f1\b\fs32 # firewall-cmd --add-port=\{10051/tcp,10050/tcp\} --permanent 
+\f0\b0\fs24 \
+
+\f1\b\fs32 # firewall-cmd --reload 
+\f0\b0\fs24 \
+
+\f1\b\fs32 # firewall-cmd --list-all 
+\f0\b0\fs24 \
+
+\f1\b\fs32 ->Finally restart the following services: 
+\f0\b0\fs24 \
+
+\f1\b\fs32 # systemctl restart zabbix-server 
+\f0\b0\fs24 \
+
+\f1\b\fs32 # systemctl restart zabbix-agent 
+\f0\b0\fs24 \
+
+\f1\b\fs32 # systemctl restart httpd
+\f0\b0\fs24 \
+
+\f1\b\fs32 \cf3 Add the required libraries: 
+\f0\b0\fs24 \cf2 \
+
+\f1\b\fs32 # rpm -Uvh \cf4 http://repo.zabbix.com/zabbix/3.4/rhel/7/x86_64/zabbix-release-3.4- 
+\f0\b0\fs24 \cf2 \
+
+\f1\b\fs32 \cf4 2.el7.noarch.rpm 
+\f0\b0\fs24 \cf2 \
+
+\f1\b\fs32 \cf3  Install Zabbix Agent : 
+\f0\b0\fs24 \cf2 \
+
+\f1\b\fs32 # yum install zabbix zabbix-agent 
+\f0\b0\fs24 \
+
+\f1\b\fs32 \cf3 Configure Zabbix Agent : 
+\f0\b0\fs24 \cf2 \
+
+\f1\b\fs32 # vi /etc/zabbix/zabbix_agentd.conf 
+\f0\b0\fs24 \
+
+\f1\b\fs32 #Server=[zabbix server ip] 
+\f0\b0\fs24 \
+
+\f1\b\fs32 #Hostname=[ Hostname of client system ] 
+\f0\b0\fs24 \
+
+\f1\b\fs32 Server=172.16.67.131
+\f0\b0\fs24 \
+
+\f1\b\fs32 Hostname=centos 
+\f0\b0\fs24 \
+
+\f1\b\fs32 \cf3 Open Port : 
+\f0\b0\fs24 \cf2 \
+
+\f1\b\fs32 # iptables -A INPUT -p tcp -s 172.16.67.132 --dport 10050 -m state --state 
+\f0\b0\fs24 \
+
+\f1\b\fs32 NEW,ESTABLISHED -j ACCEPT 
+\f0\b0\fs24 \
+
+\f1\b\fs32 \cf3 Restarting the Zabbix agent: 
+\f0\b0\fs24 \cf2 \
+
+\f1\b\fs32 # service zabbix-agent restart 
+\f0\b0\fs24 \
+
+\f1\b\fs32 ->To start and stop the zabbix-agent service at any time, use the following commands : 
+\f0\b0\fs24 \
+
+\f1\b\fs32 # service zabbix-agent start 
+\f0\b0\fs24 \
+
+\f1\b\fs32 # service zabbix-agent stop
+\f0\b0\fs24 \
+\
+\
+}

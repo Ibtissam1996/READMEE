@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)http://172.16.67.134/zabbix/charts.php?ddreset=1 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="Author" content="Zabbix SIA">
+		<title>zabbix.SIM: Custom graphs [refreshed every 30 sec.]</title>
+		<link rel="icon" href="http://172.16.67.134/zabbix/favicon.ico">
+		<link rel="apple-touch-icon-precomposed" sizes="76x76" href="http://172.16.67.134/zabbix/img/apple-touch-icon-76x76-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="120x120" href="http://172.16.67.134/zabbix/img/apple-touch-icon-120x120-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="152x152" href="http://172.16.67.134/zabbix/img/apple-touch-icon-152x152-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="180x180" href="http://172.16.67.134/zabbix/img/apple-touch-icon-180x180-precomposed.png">
+		<link rel="icon" sizes="192x192" href="http://172.16.67.134/zabbix/img/touch-icon-192x192.png">
+		<meta name="csrf-token" content="4dc0c2ddacb52de5">
+		<meta name="msapplication-TileImage" content="img/ms-tile-144x144.png">
+		<meta name="msapplication-TileColor" content="#d40000">
+		<meta name="msapplication-config" content="none">
+<link rel="stylesheet" type="text/css" href="./zabbix.SIM_ Custom graphs [refreshed every 30 sec.]_files/blue-theme.css">
+<style type="text/css">.na-bg, .na-bg input[type="radio"]:checked + label { background-color: #97AAB3 }
+.info-bg, .info-bg input[type="radio"]:checked + label { background-color: #7499FF }
+.warning-bg, .warning-bg input[type="radio"]:checked + label { background-color: #FFC859 }
+.average-bg, .average-bg input[type="radio"]:checked + label { background-color: #FFA059 }
+.high-bg, .high-bg input[type="radio"]:checked + label { background-color: #E97659 }
+.disaster-bg, .disaster-bg input[type="radio"]:checked + label { background-color: #E45959 }
+</style><script>var PHP_TZ_OFFSET = 3600;</script><script src="./zabbix.SIM_ Custom graphs [refreshed every 30 sec.]_files/browsers.js"></script>
+<script src="./zabbix.SIM_ Custom graphs [refreshed every 30 sec.]_files/jsLoader.php"></script>
+<script src="./zabbix.SIM_ Custom graphs [refreshed every 30 sec.]_files/jsLoader(1).php"></script>
+<script data-dapp-detection="">
+(function() {
+  let alreadyInsertedMetaTag = false
+
+  function __insertDappDetected() {
+    if (!alreadyInsertedMetaTag) {
+      const meta = document.createElement('meta')
+      meta.name = 'dapp-detected'
+      document.head.appendChild(meta)
+      alreadyInsertedMetaTag = true
+    }
+  }
+
+  if (window.hasOwnProperty('web3')) {
+    // Note a closure can't be used for this var because some sites like
+    // www.wnyc.org do a second script execution via eval for some reason.
+    window.__disableDappDetectionInsertion = true
+    // Likely oldWeb3 is undefined and it has a property only because
+    // we defined it. Some sites like wnyc.org are evaling all scripts
+    // that exist again, so this is protection against multiple calls.
+    if (window.web3 === undefined) {
+      return
+    }
+    __insertDappDetected()
+  } else {
+    var oldWeb3 = window.web3
+    Object.defineProperty(window, 'web3', {
+      configurable: true,
+      set: function (val) {
+        if (!window.__disableDappDetectionInsertion)
+          __insertDappDetected()
+        oldWeb3 = val
+      },
+      get: function () {
+        if (!window.__disableDappDetectionInsertion)
+          __insertDappDetected()
+        return oldWeb3
+      }
+    })
+  }
+})()</script></head>
+<body style="">
+<div class="msg-bad-global" id="msg-bad-global"></div>
+<script type="text/javascript">
+MMenu.def_label = 'view'
+</script><header role="banner"><div class="nav" role="navigation"><div class="top-nav-container" id="mmenu"><a class="header-logo" href="http://172.16.67.134/zabbix/zabbix.php?action=dashboard.view"><div class="logo"></div></a><ul class="top-nav"><li class="selected" id="view" onclick="javascript: MMenu.mouseOver(&#39;view&#39;);"><a tabindex="0">Monitoring</a></li><li id="cm" onclick="javascript: MMenu.mouseOver(&#39;cm&#39;);" class=""><a tabindex="0">Inventory</a></li><li id="reports" onclick="javascript: MMenu.mouseOver(&#39;reports&#39;);" class=""><a tabindex="0">Reports</a></li><li id="config" onclick="javascript: MMenu.mouseOver(&#39;config&#39;);" class=""><a tabindex="0">Configuration</a></li><li id="admin" onclick="javascript: MMenu.mouseOver(&#39;admin&#39;);" class=""><a tabindex="0">Administration</a></li></ul><ul class="top-nav-icons"><li><form method="get" action="http://172.16.67.134/zabbix/search.php" accept-charset="utf-8"><input type="hidden" id="sid" name="sid" value="4dc0c2ddacb52de5"><input type="hidden" id="form_refresh" name="form_refresh" value="1"><input type="text" id="search" name="search" value="" maxlength="255" autocomplete="off" class="search"><button type="submit" class="btn-search">&nbsp;</button></form></li><li><a class="top-nav-zbbshare" target="_blank" title="Zabbix Share" href="https://share.zabbix.com/">Share</a></li><li><a class="top-nav-help" target="_blank" title="Help" href="http://www.zabbix.com/documentation/3.4/">&nbsp;</a></li><li><a class="top-nav-profile" title="Admin (Zabbix Administrator)" href="http://172.16.67.134/zabbix/profile.php">&nbsp;</a></li><li><a class="top-nav-signout" title="Sign out" onclick="javascript: return redirect(&#39;index.php?reconnect=1&amp;sid=4dc0c2ddacb52de5&#39;, &#39;post&#39;, &#39;sid&#39;, true)" href="javascript:void(0)">&nbsp;</a></li></ul></div><div class="top-subnav-container" onmouseover="javascript: MMenu.submenu_mouseOver();" onmouseout="javascript: MMenu.mouseOut();"><ul class="top-subnav" id="sub_view" style="display: block;"><li><a href="http://172.16.67.134/zabbix/zabbix.php?action=dashboard.view&amp;ddreset=1">Dashboard</a></li><li><a href="http://172.16.67.134/zabbix/zabbix.php?action=problem.view&amp;ddreset=1">Problems</a></li><li><a href="http://172.16.67.134/zabbix/overview.php?ddreset=1">Overview</a></li><li><a href="http://172.16.67.134/zabbix/zabbix.php?action=web.view&amp;ddreset=1">Web</a></li><li><a href="http://172.16.67.134/zabbix/latest.php?ddreset=1">Latest data</a></li><li><a href="http://172.16.67.134/zabbix/tr_status.php?ddreset=1">Triggers</a></li><li><a class="selected" href="http://172.16.67.134/zabbix/charts.php?ddreset=1">Graphs</a></li><li><a href="http://172.16.67.134/zabbix/screens.php?ddreset=1">Screens</a></li><li><a href="http://172.16.67.134/zabbix/zabbix.php?action=map.view&amp;ddreset=1">Maps</a></li><li><a href="http://172.16.67.134/zabbix/zabbix.php?action=discovery.view&amp;ddreset=1">Discovery</a></li><li><a href="http://172.16.67.134/zabbix/srv_status.php?ddreset=1">Services</a></li></ul><ul class="top-subnav" id="sub_cm" style="display: none;"><li><a href="http://172.16.67.134/zabbix/hostinventoriesoverview.php?ddreset=1">Overview</a></li><li><a href="http://172.16.67.134/zabbix/hostinventories.php?ddreset=1">Hosts</a></li></ul><ul class="top-subnav" id="sub_reports" style="display: none;"><li><a href="http://172.16.67.134/zabbix/zabbix.php?action=report.status&amp;ddreset=1">Status of Zabbix</a></li><li><a href="http://172.16.67.134/zabbix/report2.php?ddreset=1">Availability report</a></li><li><a href="http://172.16.67.134/zabbix/toptriggers.php?ddreset=1">Triggers top 100</a></li><li><a href="http://172.16.67.134/zabbix/auditlogs.php?ddreset=1">Audit</a></li><li><a href="http://172.16.67.134/zabbix/auditacts.php?ddreset=1">Action log</a></li><li><a href="http://172.16.67.134/zabbix/report4.php?ddreset=1">Notifications</a></li></ul><ul class="top-subnav" id="sub_config" style="display: none;"><li><a href="http://172.16.67.134/zabbix/hostgroups.php?ddreset=1">Host groups</a></li><li><a href="http://172.16.67.134/zabbix/templates.php?ddreset=1">Templates</a></li><li><a href="http://172.16.67.134/zabbix/hosts.php?ddreset=1">Hosts</a></li><li><a href="http://172.16.67.134/zabbix/maintenance.php?ddreset=1">Maintenance</a></li><li><a href="http://172.16.67.134/zabbix/actionconf.php?ddreset=1">Actions</a></li><li><a href="http://172.16.67.134/zabbix/correlation.php?ddreset=1">Event correlation</a></li><li><a href="http://172.16.67.134/zabbix/discoveryconf.php?ddreset=1">Discovery</a></li><li><a href="http://172.16.67.134/zabbix/services.php?ddreset=1">Services</a></li></ul><ul class="top-subnav" id="sub_admin" style="display: none;"><li><a href="http://172.16.67.134/zabbix/adm.gui.php?ddreset=1">General</a></li><li><a href="http://172.16.67.134/zabbix/zabbix.php?action=proxy.list&amp;ddreset=1">Proxies</a></li><li><a href="http://172.16.67.134/zabbix/authentication.php?ddreset=1">Authentication</a></li><li><a href="http://172.16.67.134/zabbix/usergrps.php?ddreset=1">User groups</a></li><li><a href="http://172.16.67.134/zabbix/users.php?ddreset=1">Users</a></li><li><a href="http://172.16.67.134/zabbix/zabbix.php?action=mediatype.list&amp;ddreset=1">Media types</a></li><li><a href="http://172.16.67.134/zabbix/zabbix.php?action=script.list&amp;ddreset=1">Scripts</a></li><li><a href="http://172.16.67.134/zabbix/queue.php?ddreset=1">Queue</a></li></ul><div class="server-name">zabbix.SIM</div></div></div></header><div class="article"><script type="text/javascript">
+timeControl.addObject("graph_full", {"period":3600,"stime":'20200610014337',"starttime":'20200610010000',"usertime":'20200610024337',"isNow":1}, {"id":'graph_full',"containerid":'graph_container',"src":'chart2.php?graphid=524&period=3600&stime=20200610014337&isNow=1&profileIdx=web.graphs&profileIdx2=524',"objDims":{"shiftYtop":35,"yaxis":'0',"graphtype":'0',"graphHeight":'200',"shiftXleft":85,"shiftXright":30},"loadSBox":1,"loadImage":1,"dynamic":1,"periodFixed":1,"sliderMaximumTimePeriod":63072000});
+</script><div class="header-title table"><div class="cell"><h1>Graphs</h1></div><div class="cell nowrap"><form method="get" action="http://172.16.67.134/zabbix/charts.php" accept-charset="utf-8"><input type="hidden" id="fullscreen" name="fullscreen" value="0"><ul><li><label for="groupid">Group</label><div class="form-input-margin"></div><select id="groupid" name="groupid" onchange="javascript: submit();" autocomplete="off"><option value="0" selected="selected">all</option><option value="4">Zabbix servers</option></select></li><li><label for="hostid">Host</label><div class="form-input-margin"></div><select id="hostid" name="hostid" onchange="javascript: submit();" autocomplete="off"><option value="0" selected="selected">all</option><option value="10084">Zabbix server</option></select></li><li><label for="graphid">Graph</label><div class="form-input-margin"></div><select id="graphid" name="graphid" onchange="javascript: submit();" autocomplete="off"><option value="0">not selected</option><option value="523">CPU jumps</option><option value="524" selected="selected">CPU load</option><option value="525">CPU utilization</option><option value="791">Disk space usage /</option><option value="792">Disk space usage /boot</option><option value="534">Memory usage</option><option value="790">Network traffic on ens33</option><option value="526">Swap usage</option><option value="528">Value cache effectiveness</option><option value="520">Zabbix cache usage, % free</option><option value="518">Zabbix data gathering process busy %</option><option value="517">Zabbix internal process busy %</option><option value="789">Zabbix preprocessing queue</option><option value="519">Zabbix server performance</option></select></li><li><button type="button" class="btn-add-fav" title="Add to favourites" onclick="add2favorites(&quot;graphid&quot;, &quot;524&quot;);" id="addrm_fav">&nbsp;</button></li><li><button type="button" class="btn-reset" title="Reset" onclick="timeControl.objectReset();">&nbsp;</button></li><li><button type="button" data-url="charts.php?ddreset=1&amp;fullscreen=1" title="Fullscreen" class="btn-max">&nbsp;</button></li></ul></form></div></div><div class="filter-btn-container"><button type="button" class="filter-trigger filter-active" id="filter-mode" onclick="javascript:
+			jQuery(&quot;#filter-space&quot;).toggle();
+			jQuery(&quot;#filter-mode&quot;).toggleClass(&quot;filter-active&quot;);
+			jQuery(&quot;#filter-arrow&quot;).toggleClass(&quot;arrow-up arrow-down&quot;);
+			updateUserProfile(&quot;web.charts.filter.state&quot;, jQuery(&quot;#filter-arrow&quot;).hasClass(&quot;arrow-up&quot;) ? 1 : 0, []);
+			if (jQuery(&quot;.multiselect&quot;).length &gt; 0 &amp;&amp; jQuery(&quot;#filter-arrow&quot;).hasClass(&quot;arrow-up&quot;)) {
+				jQuery(&quot;.multiselect&quot;).multiSelect(&quot;resize&quot;);
+			}
+			if (jQuery(&quot;#filter-arrow&quot;).hasClass(&quot;arrow-up&quot;)) {
+				jQuery(&quot;#filter-space [autofocus=autofocus]&quot;).focus();
+			}">Filter<span id="filter-arrow" class="arrow-up"></span></button></div><div class="filter-container" id="filter-space"><form method="get" action="http://172.16.67.134/zabbix/charts.php" accept-charset="utf-8" name="zbx_filter" id="id"><div id="scrollbar_cntr"><div class="scrollbar" style="width: 850px;"><div class="info" style="width: 850px;"><div class="zoom"><span class="text">Zoom:</span><span class="links"><a class="link-action" zoom="300">5m</a><a class="link-action" zoom="900">15m</a><a class="link-action" zoom="1800">30m</a><a class="link-action" zoom="3600">1h</a><a class="link-action" zoom="63072000">All</a></span></div><div class="timeline"><a class="info_left link-action" data-timestamp="1591752700">2020-06-10 02:31</a><span class="info_sep1"> - </span><a class="info_right link-action" data-timestamp="1591752760">2020-06-10 02:32</a></div></div><div class="sublevel" style="width: 850px;"><button class="btn-grey" type="button"><span class="arrow-left"></span></button><button class="btn-grey" type="button"><span class="arrow-right"></span></button></div><div class="overlevel" style="width: 792px;"><div class="bar ui-draggable" style="width: 40px; left: 449px;"><div class="icon"><div class="center"></div></div></div><div class="ghost" style="left: 449px; width: 40px;"></div><div class="left_arr ui-draggable" style="left: 450px;"><span class="arrow-left"></span></div><div class="right_arr ui-draggable" style="left: 474px;"><span class="arrow-right"></span></div></div><div class="subline" style="width: 850px;"><div class="nav_links"><span class="text"> «« </span><a class="link-action" nav="3600">1h</a><a class="link-action" nav="300">5m</a><span class="text"> | </span><a class="link-action" nav="300">5m</a><a class="link-action" nav="3600">1h</a><span class="text"> »» </span></div><div class="period"><a class="period_state link-action">fixed</a></div><div class="info_period">1m </div></div></div><div class="overlay-dialogue calendar" style="display: none;"><div class="calendar-header"><div class="calendar-year"><button type="button" class="btn-grey"><span class="arrow-left"></span></button>2020<button type="button" class="btn-grey"><span class="arrow-right"></span></button></div><div class="calendar-month"><button type="button" class="btn-grey"><span class="arrow-left"></span></button>June<button type="button" class="btn-grey"><span class="arrow-right"></span></button></div></div><table><thead><tr><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th><th>S</th></tr></thead><tbody><tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr><tr><td>8</td><td>9</td><td class="selected">10</td><td>11</td><td>12</td><td>13</td><td>14</td></tr><tr><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td></tr><tr><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td></tr><tr><td>29</td><td>30</td><td class="grey">1</td><td class="grey">2</td><td class="grey">3</td><td class="grey">4</td><td class="grey">5</td></tr><tr><td class="grey">6</td><td class="grey">7</td><td class="grey">8</td><td class="grey">9</td><td class="grey">10</td><td class="grey">11</td><td class="grey">12</td></tr></tbody></table><div class="calendar-time">Time <input type="text" name="hour" value="hh" maxlength="2" class="calendar_textbox"> : <input type="text" name="minute" value="mm" maxlength="2" class="calendar_textbox"></div><div class="calendar-footer"><button class="btn-grey" type="button" value="Now">Now</button><button type="button">Done</button></div></div><div class="overlay-dialogue calendar" style="display: none;"><div class="calendar-header"><div class="calendar-year"><button type="button" class="btn-grey"><span class="arrow-left"></span></button>2020<button type="button" class="btn-grey"><span class="arrow-right"></span></button></div><div class="calendar-month"><button type="button" class="btn-grey"><span class="arrow-left"></span></button>June<button type="button" class="btn-grey"><span class="arrow-right"></span></button></div></div><table><thead><tr><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th><th>S</th></tr></thead><tbody><tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr><tr><td>8</td><td>9</td><td class="selected">10</td><td>11</td><td>12</td><td>13</td><td>14</td></tr><tr><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td></tr><tr><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td></tr><tr><td>29</td><td>30</td><td class="grey">1</td><td class="grey">2</td><td class="grey">3</td><td class="grey">4</td><td class="grey">5</td></tr><tr><td class="grey">6</td><td class="grey">7</td><td class="grey">8</td><td class="grey">9</td><td class="grey">10</td><td class="grey">11</td><td class="grey">12</td></tr></tbody></table><div class="calendar-time">Time <input type="text" name="hour" value="hh" maxlength="2" class="calendar_textbox"> : <input type="text" name="minute" value="mm" maxlength="2" class="calendar_textbox"></div><div class="calendar-footer"><button class="btn-grey" type="button" value="Now">Now</button><button type="button">Done</button></div></div></div></form></div><table style="width: 100%;"><tbody><tr><td><div class="flickerfreescreen" data-timestamp="1591753417" id="flickerfreescreen_graph_full"><div class="center" id="graph_container"><img data-timestamp="1591755197035" id="graph_full" src="./zabbix.SIM_ Custom graphs [refreshed every 30 sec.]_files/chart2.php" style="position: relative; z-index: 2;"><div id="graph_full_box_on" class="box_on" style="height: 201px; top: 36px; left: 1px; width: 928px;"></div></div></div></td></tr></tbody></table></div>
+<div class="footer">Zabbix 3.4.15. © 2001–2018, <a class="grey link-alt" target="_blank" href="http://www.zabbix.com/">Zabbix SIA</a></div><script type="text/javascript">
+jQuery(document).ready(function() { initMessages({});
+window.flickerfreeScreen.add({"id":'graph_full',"interval":'30',"isFlickerfree":true,"mode":2,"timestamp":1591753417,"resourcetype":18,"screenid":null,"groupid":null,"hostid":0,"pageFile":'charts.php',"profileIdx":'web.graphs',"profileIdx2":'524',"updateProfile":false,"timeline":{"period":3600,"stime":'20200610014337',"starttime":'20200610010000',"usertime":'20200610024337',"isNow":1},"data":{"graphid":'524'}});
+timeControl.addObject("scrollbar", {"period":3600,"stime":'20200610014337',"starttime":'20200610010000',"usertime":'20200610024337',"isNow":1}, {"id":'scrollbar',"loadScroll":1,"mainObject":1,"periodFixed":1,"sliderMaximumTimePeriod":63072000,"profile":{"idx":'web.graphs',"idx2":'524'}});
+timeControl.useTimeRefresh(30);
+timeControl.processObjects(); });
+</script><script type="text/javascript">
+	jQuery(document).ready(function() {
+		
+					window.flickerfreeScreenShadow.timeout = 30000 ;
+			window.flickerfreeScreenShadow.responsiveness = 10000;
+		
+		// the chkbxRange.init() method must be called after the inserted post scripts and initializing cookies
+		cookie.init();
+		chkbxRange.init();
+	});
+</script>
+<div id="zbx_messages" class="overlay-dialogue notif ui-draggable" style="right: 0px; top: 126px; display: none;"><button title="Clear" class="overlay-close-btn"></button><div class="dashbrd-widget-head cursor-move"><ul><li><button title="Snooze" class="btn-alarm-on"></button></li><li><button title="Mute/Unmute" class="btn-sound-on"></button></li></ul></div><ul class="notif-body"></ul></div></body></html>
